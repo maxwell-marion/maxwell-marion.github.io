@@ -3,15 +3,6 @@ Programming Background
 Maxwell Marion-Spencer
 2022-06-09
 
-``` r
-rmarkdown::render(
-    '_Rmd/Programming Background.Rmd', 
-    output_format = "github_document",
-    output_dir = "_posts",
-    output_options = list(html_preview = FALSE)
-)
-```
-
 ## My Programming Experience and Thoughts on R
 
 **What are your thoughts on R vs whatever other software you’ve used?**
