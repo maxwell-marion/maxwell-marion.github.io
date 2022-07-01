@@ -6,16 +6,6 @@ date: '2022-07-01'
 
 ## ST 558 - Third Blog Post
 
-```{r, eval = FALSE}
-rmarkdown::render(
-    '_Rmd/2022-06-30-blog-no3.Rmd', 
-    output_format = "github_document",
-    output_dir = "_posts",
-    output_options = list(html_preview = FALSE)
-)
-```
-
-
 After completing Topic 1 and Topic 2 for ST 558, the most interesting thing I learned about programming in R was about how straight-forwardly logical ggplot is. 
 
 I know that this was the example, but genuinely for whatever reason the argument for ggplot over base R plotting hadn't ever quite landed for me. After completing Project 1 and using ggplot to plot a variety of pokemon data, my favorite graph I created was definitely the Pokemon BMI by Generation, and Type Boxplot.
