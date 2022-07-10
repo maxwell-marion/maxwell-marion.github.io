@@ -1,5 +1,5 @@
 ---
-title: '2022-07-10'
+title: 'Project 2 Blog'
 author: "Maxwell Marion-Spencer"
 date: '2022-07-10'
 ---

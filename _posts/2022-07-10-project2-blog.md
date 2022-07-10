@@ -1,4 +1,4 @@
-2022-07-10
+Project 2 Blog
 ================
 Maxwell Marion-Spencer
 2022-07-10
