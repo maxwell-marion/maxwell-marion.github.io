@@ -1,0 +1,89 @@
+---
+title: "ST 558 - Fourth Blog Post"
+author: "Maxwell Marion-Spencer"
+date: '2022-07-19'
+---
+
+## Favorite Modeling Method: Boosted Tree
+
+The modeling method I found the most interesting was the boosted tree method. 
+
+This method relies on growing trees in a sequential manner, where each tree is based on an updated version of the previous tree, and the predictions are updated as the trees grow. A benefit of this method is that it is fairly slow, so you are unlikely to over fit the model.
+
+There are four tuning parameters for a Boosted Tree model:
+
+    n.trees: Number of trees, increasing n reduces the error on training set
+    interaction.depth: number of splits it has to perform on a tree
+    shrinkage: learning rate, reduce the impact of each additional fitted tree
+    n.minobsinnode: minimum number of observations in trees’ terminal nodes
+
+
+## A Boosted Tree Example:
+
+First, we will bring our necessary libraries and the `iris` data set to use as our example data.
+
+```{r, message=FALSE}
+# Libraries
+library(tidyverse)
+library(caret)
+library(gbm)
+
+# Data set
+data("iris")
+```
+
+
+Next, we will split our iris data into a test set and a training set. With 70% of our values going to our training set, and 30% going into our test set. 
+
+```{r}
+# Establishing train and test sets
+set.seed(11)
+train <- sample(1:nrow(iris),size=nrow(iris)*0.7)
+test <- setdiff(1:nrow(iris),train)
+irisTrain <- iris[train, ]
+irisTest <- iris[test, ]
+```
+
+
+Typically we would conduct some exploratory data analysis on the training set, in order to get an idea of the distributions and existing relationships between the variables.
+
+We can now fit our boosted tree model, with Sepal.Width, Petal.Length, and Petal.Width being used to predict Sepal.Length.
+
+We are using five-fold cross validation.
+
+```{r}
+fit_boost <- train(Sepal.Length ~ Sepal.Width + Petal.Length + Petal.Width,
+                 data = irisTrain,
+                 method = "gbm",
+                 preProcess = c("center", "scale"),
+                 trControl = trainControl(method = "cv", number = 5),
+                 tuneGrid = expand.grid(n.trees = c(50, 100, 150),
+                                        interaction.depth = 1:3, 
+                                        shrinkage = 0.1, 
+                                        n.minobsinnode = 10),
+                 verbose = FALSE)
+
+fit_boost
+```
+
+
+We can now apply our final model to our test set.
+
+```{r}
+prediction <- round(postResample(predict(fit_boost, newdata = irisTest), obs = irisTest$Sepal.Length),4)
+prediction
+```
+
+This prediction seems pretty good! The RMSE is on the lower end, though we appear to have lost a bit of RSquared value compared to the performance on the training data. 
+
+## Render Code
+
+```{r, eval=FALSE, echo=FALSE}
+# Render code I used to create this blog post
+rmarkdown::render(
+    '_Rmd/2022-07-19-blog-no4.Rmd', 
+    output_format = "github_document",
+    output_dir = "_posts",
+    output_options = list(html_preview = FALSE)
+)
+```
