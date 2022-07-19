@@ -12,10 +12,10 @@ This method relies on growing trees in a sequential manner, where each tree is b
 
 There are four tuning parameters for a Boosted Tree model:
 
-    n.trees: Number of trees, increasing n reduces the error on training set
-    interaction.depth: number of splits it has to perform on a tree
-    shrinkage: learning rate, reduce the impact of each additional fitted tree
-    n.minobsinnode: minimum number of observations in trees’ terminal nodes
+- n.trees: Number of trees, increasing n reduces the error on training set
+- interaction.depth: number of splits it has to perform on a tree
+- shrinkage: learning rate, reduce the impact of each additional fitted tree
+- n.minobsinnode: minimum number of observations in trees’ terminal nodes
 
 
 ## A Boosted Tree Example:
@@ -76,7 +76,6 @@ prediction
 
 This prediction seems pretty good! The RMSE is on the lower end, though we appear to have lost a bit of RSquared value compared to the performance on the training data. 
 
-## Render Code
 
 ```{r, eval=FALSE, echo=FALSE}
 # Render code I used to create this blog post
