@@ -1,0 +1,33 @@
+---
+title: "ST 558 - Fifth Blog Post"
+author: "Maxwell Marion-Spencer"
+date: '2022-07-23'
+---
+
+## ST 558 - Fifth Blog Post
+
+
+### Using R for Data Science
+
+I already used R for my day to day work. It is the language I feel most comfortable with, and I will absolutely continue to use it. I was already fond of R and R studio prior to taking this course but I feel as though 558 has broadened my appreciation for both. It explored a lot of features that I had been meaning to delve into, such as shiny apps, the git/github integration, and the tidyverse packages, all of which I find interesting and practical.
+
+### What Will I Do Differently?
+
+Of the topics and features we covered, the thing I am most likely to implement that I hadn't used much before is `git` version control. I really appreciated having a record of changes and being able to collaborate relatively seamlessly with someone. I am also more likely to use `tidyverse` more consistently throughout my projects, since previously I had sometimes been pretty haphazard with the types of packages I've used.
+
+### Further Exploration
+
+I enjoy following a number of different sports, so I would like to casually dive into some sports analytics and attempt to learn a bit more about spatial/tracking data. Likewise, transportation and urban planning is also a hobby interest of mine, so I think it would be fun to attempt to do a mapping project at some point, potentially with `leaflet`. 
+
+
+
+
+```{r, eval=FALSE, echo=FALSE}
+# Render code I used to create this blog post
+rmarkdown::render(
+    '_Rmd/2022-07-23-blog-no5.Rmd', 
+    output_format = "github_document",
+    output_dir = "_posts",
+    output_options = list(html_preview = FALSE)
+)
+```
